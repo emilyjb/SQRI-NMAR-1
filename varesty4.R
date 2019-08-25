@@ -20,6 +20,8 @@ Llist <- vector("list", length(tauvec))
 fhatJmat <- c()
 DSQJ <- 0
 DBar <- 0
+
+
 for(j in 1:length(tauvec)){
 
 
@@ -34,7 +36,7 @@ for(j in 1:length(tauvec)){
   Hjlist[[j]] <-   1/sum(groupind[,1])*t(BS.X[groupind[,1]==1,])%*%diag( fhat1ygxj)%*%BS.X[groupind[,1]==1,] + lam.select/sum(groupind[,1])*t(D)%*%D
   
   psie1J <- tauvec[j] - ifelse( e1J[,j] < 0, 1, 0) 
-  Llist[[j]] <-    1/sum(groupind[,1])*t(solve(Hjlist[[j]])%*%t(BS.X[groupind[,1]==1,]) )*psie1J 
+  Llist[[j]] <- 1/sum(groupind[,1])*t(solve(Hjlist[[j]])%*%t(BS.X[groupind[,1]==1,]) )*psie1J 
 
   dsqjj <- wyimp1all[,j]*( 1 +  qjall*phicur[3] - phicur[3]*E0yall)  
   dsj1 <-  -pi12A12*(1-pi12A12)*wyimp1all[,j]*phicur[3]
